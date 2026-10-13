@@ -1,0 +1,62 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TidyLead</title>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/'%}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav class='navbar'>
+
+            <div class='navbar-left'>
+                <div>
+                    <a href="{% url 'home' %}" target='blank' >
+                        <img class="logo" src="{% static 'images/tidylead-logo.png' %}" alr="TidyLead Logo">
+                    </a>
+                </div>
+            </div>
+
+            <div class='navbar-center'>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#how_it_works">How It Works</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+
+            <div class='navbar-right'>
+                <ul>
+                    <li><a href="#login">Log in</a></li>
+                    <li><a class="get-started" href="#get_started">Get Started</a></li>
+                </ul>
+            </div>
+            
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Page-specific content -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+        <!-- Footer content -->
+        {% endblock %}
+    </footer>
+
+    {% block scripts %}
+    <!-- JS scripts -->
+    {% endblock %}
+</body>
+</html>

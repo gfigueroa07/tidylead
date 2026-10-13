@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+{% block content %} 
+<div class='home-container'>
+    <section id="home">
+        <div class="hero-content">
+            <div class"background-img">
+                <img class="bckgrnd-img"
+                src="{% static 'images/tidylead-bckgrnd-img.png' %}"
+                alt="water-drop">
+            </div>
+
+            <div class="home-text">
+                <h1 class="main-text">
+                    Turn Website Visitors<br>
+                    Into <span class='leads'>Cleaning Leads</span>
+                </h1>
+
+                <h3>
+                    Give your customers an instant cleaning estimate<br>
+                    and collect quote requests — 24/7.
+                </h3>
+                <div class='services'>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i>Custom pricing & services</li>
+                        <li><i class="fa-solid fa-check"></i>Shareable quote link</li>
+                        <li><i class="fa-solid fa-check"></i>Email notifications</li>
+                        <li><i class="fa-solid fa-check"></i>Mobile friendly</li>
+                    </ul>
+                </div>
+                <div class="subs-btn">
+                    <a class="free-trial">Start Free Trial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %} 

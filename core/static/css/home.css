@@ -12,7 +12,7 @@
     /* Background image */
     background-image: url("../images/tidylead-bckgrnd-img.png");
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     background-repeat: no-repeat;
 }
 
@@ -21,10 +21,11 @@
     width: 100%;
     min-height: auto;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    padding: 60px 3%;
+    padding: 40px 3%;
     padding-top: 120px;
 }
 
@@ -40,7 +41,7 @@
 .home-text .main-text {
     font-size: clamp(2rem, 4vw, 4rem);
     line-height: 1.2;
-    margin: 1.5rem;
+    margin: 1rem;
 }
 
 .home-text h3 {
@@ -53,16 +54,17 @@
 
 /* Services list */
 .services {
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .services ul {
     padding: 0;
 }
 
-.services li {
+.services li,
+.how-it-works li {
     list-style: none;
-    margin: 1rem 0;
+    margin: .8rem 0;
 }
 
 .services i {
@@ -77,15 +79,13 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
-    transform: translate(10px, -500px);
 }
 
 .bckgrnd-device {
     display: block;
     width: 100%;
-    max-width: 1000px;
-    height: 100%;
+    max-width: 850px;
+    height: auto;
     object-fit: cover;
 }
 
@@ -103,6 +103,64 @@
 
 .free-trial:hover {
     background-color: #00b889;
+}
+
+.how-it-works {
+    width: 100%;
+    background-color: #ffffff;
+    color: #222222;
+    padding: 70px 5%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    margin: 0 0 45px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.step-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    background-color: #00bfaf;
+    color: #ffffff;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.step h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.step p {
+    color: #666666;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* Mobile layout */

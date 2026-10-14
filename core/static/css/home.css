@@ -1,58 +1,137 @@
-.bckgrnd-img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-}
-
-.bckgrnd-img img {
-    display: block;
+/* Main hero section */
+.home-container {
     width: 100%;
-    height: auto;
+    margin: 0;
+    padding: 0;
 }
 
+#home {
+    position: relative;
+    width: 100%;
+
+    /* Background image */
+    background-image: url("../images/tidylead-bckgrnd-img.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Text and device layout */
+.hero-content {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 60px 3%;
+    padding-top: 120px;
+}
+
+/* Left side */
 .home-text {
-    position: absolute;
-    z-index: 20;
+    flex: 1;
+    position: relative;
+    z-index: 1;
     color: #ffffff;
     font-weight: bold;
-    padding-top: 40px;
 }
 
 .home-text .main-text {
-    font-size: 4rem;
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 1.2;
+    margin: 1.5rem;
 }
 
+.home-text h3 {
+    margin-bottom: 1.5rem;
+}
 
 .home-text .leads {
     color: #00bfaf;
 }
 
+/* Services list */
 .services {
-    padding: 20 0;
+    padding: 20px 0;
+}
+
+.services ul {
+    padding: 0;
 }
 
 .services li {
-    list-style-type: none;
-    margin: 1rem;
-    
+    list-style: none;
+    margin: 1rem 0;
 }
 
 .services i {
     font-size: 1.2rem;
-    margin-right: .8rem;
-    font-weight: bold;
+    margin-right: 0.8rem;
     color: #00bfaf;
 }
 
+/* Right side: device mockup */
+.background-device {
+    flex: 0 1 42%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    transform: translate(10px, -500px);
+}
+
+.bckgrnd-device {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Trial button */
 .free-trial {
+    display: inline-block;
     background-color: #00bfaf;
     color: #ffffff;
     font-weight: bold;
     border-radius: 30px;
     padding: 15px 50px;
+    text-decoration: none;
 }
 
 .free-trial:hover {
-    background-color: #00b889;;
+    background-color: #00b889;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+    #home,
+    .hero-content {
+        min-height: auto;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 60px 24px;
+    }
+
+    .home-text {
+        width: 100%;
+    }
+
+    .home-text .main-text {
+        font-size: 2.3rem;
+    }
+
+    .background-device {
+        width: 100%;
+        align-self: center;
+    }
+
+    .bckgrnd-device {
+        max-width: 300px;
+    }
 }

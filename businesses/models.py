@@ -26,13 +26,26 @@ class BusinessProfile(models.Model):
     def has_duplicate_slug(self):
         return self.__class__.objects.filter(slug=self.slug).exclude(pk=self.pk).exists()
     
-    def duplicate_slug(self):
+    def make_unique_slug(self):
+        base_slug = self.slug
+        candidate = base_slug
         counter = 2
-        while BusinessProfile.objects.filter(slug=slug).exists():
-            slug = f"{self.slug}-{counter}"
+
+        while self.__class__.objects.filter(
+            slug=candidate
+        ).exclude(pk=self.pk).exists():
+            candidate = f"{base_slug}-{counter}"
             counter += 1
-        self.slug = slug
-    
+
+        self.slug = candidate
+        
+    # def duplicate_slug(self):
+    #     counter = 2
+    #     while BusinessProfile.objects.filter(slug=slug).exists():
+    #         slug = f"{self.slug}-{counter}"
+    #         counter += 1
+    #     self.slug = slug
+     
     def save(self, *args, **kwargs):
         """Auto-generate slug if not provided."""
         if not self.slug:

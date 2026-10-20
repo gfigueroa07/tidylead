@@ -12,8 +12,6 @@ class BusinessProfile(models.Model):
     business_name = models.CharField(max_length=100, blank=False)
     phone = PhoneNumberField(region='US')
     slug = models.SlugField(max_length=200, unique=True, blank=True)
-    # slug = unknown yet/ need research to create unique identifier for a shareable URL
-    #models.SlugField max_length and unique
     created_at = models.DateTimeField(auto_now_add=True)
     
     def clean(self):
@@ -36,21 +34,12 @@ class BusinessProfile(models.Model):
         ).exclude(pk=self.pk).exists():
             candidate = f"{base_slug}-{counter}"
             counter += 1
-
         self.slug = candidate
-        
-    # def duplicate_slug(self):
-    #     counter = 2
-    #     while BusinessProfile.objects.filter(slug=slug).exists():
-    #         slug = f"{self.slug}-{counter}"
-    #         counter += 1
-    #     self.slug = slug
      
     def save(self, *args, **kwargs):
         """Auto-generate slug if not provided."""
         if not self.slug:
             self.slug = slugify(self.business_name)
-            
         super().save(*args, **kwargs)
         
     def __str__(self):
